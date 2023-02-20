@@ -27,7 +27,7 @@ import cluster from "cluster";
 import { cpus } from "os";
 
 const SERVERMODE = args.serverMode || "FORK";
-export const PORT = args.port || 8080;
+export const PORT = process.env.PORT || args.port || 8080;
 console.log(cpus().length);
 
 if (SERVERMODE === "CLUSTER" && cluster.isPrimary) {
